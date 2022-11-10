@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="row m-3">
+    <h1><span class="badge bg-secondary">Exercice 1</span></h1>
+  </div>
+  <form class="d-flex" role="search">
+    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" ngModel="rechercher" >
+    <button class="btn btn-outline-success" type="submit" (click)="search('rechercher')">Recherche
+    </button>
+  </form>
+  <div class="row m-3">
+    <div class="col-md-4" *ngFor="let e of listeEmploi">
+      <div class="card" style="width: 18rem">
+        <div class="card-body">
+          <h5 class="card-title"><b>Titre : </b>{{ e.titre }}</h5>
+          <p class="card-text"><b>Entreprise : </b>{{ e.entreprise }}</p>
+          <button
+            class="btn btn-outline-info"
+            [disabled]="!e.etat"
+            (click)="postuler(e.reference)"
+          >
+            Postuler
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row m-3">
+    <button class="btn btn-outline-warning" (click)="bilan()">Bilan</button>
+  </div>
+  <div class="card">
+    <div class="card-body">
+      <p style="text-align: center">
+        <b>{{ result }}</b>
+      </p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="row m-3">
+    <h1><span class="badge bg-secondary">Exercice 2</span></h1>
+  </div>
+  <div class="row m-3">
+    <h3><span class="badge bg-primary">{{titre}}</span></h3>
+  </div>
+  <div class="col m-3">
+    <div class="col-md-4" *ngFor="let a of listArticle">
+      <div class="card" style="width: 25rem" *ngIf="a.categorie != 'Travail'">
+        <div class="card-body">
+          <h5 class="card-title">{{a.titre}}</h5>
+          <p class="card-text"><b>Auteur : </b>{{ a.auteur }}</p>
+          <p class="card-text"><b>Date : </b>{{ a.date }}</p>
+          <p class="card-text"><b>Contenu : </b>{{ a.contenu }}</p>
+          <p class="card-text"><b>Categorie : </b>{{ a.categorie }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
