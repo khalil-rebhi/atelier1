@@ -8,7 +8,7 @@
   <div class="col m-3">
     <div class="col-md-4" *ngFor="let a of listArticle">
       <div class="card" style="width: 25rem" *ngIf="a.categorie != 'Travail'">
-        <div class="card-body">
+        <div class="card-body"  [ngStyle]="{'background-color': a.categorie == 'Education' && 'rgba(15,10,200,.5'}">
           <h5 class="card-title">{{a.titre}}</h5>
           <p class="card-text"><b>Auteur : </b>{{ a.auteur }}</p>
           <p class="card-text"><b>Date : </b>{{ a.date }}</p>
@@ -16,6 +16,9 @@
           <p class="card-text"><b>Categorie : </b>{{ a.categorie }}</p>
         </div>
       </div>
+    </div>
+    <div class="col m-2">
+      <input type="text" [value]="total">
     </div>
   </div>
 </div>

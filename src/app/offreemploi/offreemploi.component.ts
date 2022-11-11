@@ -11,7 +11,7 @@ export class OffreemploiComponent implements OnInit {
 
   listeEmploi : Emploi[]=[];
   result : number=0;
-  rechercher: string='';
+  search: string='search';
   constructor() { }
 
   ngOnInit(): void {
@@ -31,10 +31,9 @@ export class OffreemploiComponent implements OnInit {
     this.listeEmploi.map(e => e.reference == id && (e.etat=!e.etat));
   }
 
-  search(entreprise:string){
-    console.log(this.result);
-    this.listeEmploi.map(e => e.entreprise == entreprise);
-    
+  recherche(entreprise : string){
+    this.search = entreprise;
   }
+
 
 }
