@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 import { Emploi } from '../core/emploi';
+import { SimpleChanges } from '@angular/core'
 
 @Component({
   selector: 'app-offreemploi',
@@ -10,8 +10,9 @@ import { Emploi } from '../core/emploi';
 export class OffreemploiComponent implements OnInit {
 
   listeEmploi : Emploi[]=[];
+  backup : Emploi[]=[];
   result : number=0;
-  search: string='search';
+  search: string='Rechercher ...';
   constructor() { }
 
   ngOnInit(): void {
@@ -32,7 +33,20 @@ export class OffreemploiComponent implements OnInit {
   }
 
   recherche(entreprise : string){
-    this.search = entreprise;
+    
+    console.log(this.backup);
+    
+    this.reset();
+    if (entreprise.length) {
+      this.backup = this.listeEmploi;
+      this.listeEmploi=this.listeEmploi.filter(e => e.entreprise.toLowerCase() == entreprise.toLowerCase());  
+      console.log(this.backup);
+          
+    }
+  }
+  
+  reset(){    
+    this.listeEmploi = this.backup;
   }
 
 
